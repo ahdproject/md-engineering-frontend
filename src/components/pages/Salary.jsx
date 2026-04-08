@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Play, CheckCircle, X, IndianRupee, TrendingUp, Users } from 'lucide-react';
-import { computeSalaryApi, getPayrollApi, markPaidApi } from '../../services/repository/salaryRepository';
+import { Play, CheckCircle, X, IndianRupee, TrendingUp, Users, Upload } from 'lucide-react';
+import { computeSalaryApi, getPayrollApi, markPaidApi, uploadPayrollExcelApi } from '../../services/repository/salaryRepository';
 import Loader from '../common/Loader';
 
 export default function Salary() {
@@ -15,6 +15,8 @@ export default function Salary() {
   const [markPaidModal, setMarkPaidModal] = useState(null);
   const [saving, setSaving]       = useState(false);
   const [computeResult, setComputeResult] = useState(null);
+  const [uploading, setUploading]     = useState(false);
+  const [uploadResult, setUploadResult] = useState(null);
 
   const flash = (text, type = 'success') => {
     setMsg({ text, type });
@@ -60,6 +62,22 @@ export default function Salary() {
       flash(err.response?.data?.message || 'Error', 'error');
     }
     setSaving(false);
+  };
+
+  const handleExcelUpload = async (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+    setUploading(true);
+    setUploadResult(null);
+    try {
+      const { data } = await uploadPayrollExcelApi(file);
+      setUploadResult({ type: 'success', text: `✓ Imported ${data.data.imported} records from Excel` });
+      fetchPayroll(); // refresh the table
+    } catch (err) {
+      setUploadResult({ type: 'error', text: err.response?.data?.message || 'Upload failed' });
+    }
+    setUploading(false);
+    e.target.value = ''; // reset input
   };
 
   const totals = payroll.reduce(
@@ -111,6 +129,39 @@ export default function Salary() {
           <input type="number" value={year} onChange={e => setYear(parseInt(e.target.value))}
             className="w-28 px-4 py-2.5 border border-[#E8DFCA] rounded-xl text-sm bg-[#F5EFE6] focus:outline-none focus:border-[#6D94C5]" />
         </div>
+      </div>
+
+      {/* Excel Upload Section */}
+      <div className="bg-white rounded-2xl border border-[#E8DFCA] p-5 mb-5">
+        <div className="flex items-center justify-between flex-wrap gap-3">
+          <div>
+            <h3 className="text-sm font-semibold text-[#2D3748]">Import Payroll from Excel</h3>
+            <p className="text-xs text-[#718096] mt-0.5">Upload your .xlsx payroll sheet — all fields will be parsed automatically</p>
+          </div>
+          <label className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium cursor-pointer transition
+            ${uploading
+              ? 'bg-[#E8DFCA] text-[#718096] cursor-not-allowed'
+              : 'bg-[#6D94C5] text-white hover:bg-[#5A80B0]'}`}>
+            <Upload size={15} />
+            {uploading ? 'Importing…' : 'Upload Excel'}
+            <input
+              type="file"
+              accept=".xlsx,.xls"
+              className="hidden"
+              disabled={uploading}
+              onChange={handleExcelUpload}
+            />
+          </label>
+        </div>
+
+        {uploadResult && (
+          <div className={`mt-3 px-4 py-2 rounded-xl text-sm font-medium
+            ${uploadResult.type === 'success'
+              ? 'bg-green-50 text-green-700 border border-green-200'
+              : 'bg-red-50 text-red-600 border border-red-200'}`}>
+            {uploadResult.text}
+          </div>
+        )}
       </div>
 
       {/* Compute Result */}

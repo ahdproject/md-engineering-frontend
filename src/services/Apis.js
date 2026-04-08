@@ -50,11 +50,13 @@ const APIS = {
   LOAN_WAIVE_EMI:      (id)  => `${BASE}/loans/emi/${id}/waive`,
 
   // Salary
-  SALARY_COMPUTE:      `${BASE}/salary/compute`,
-  SALARY_PAYROLL:      `${BASE}/salary/payroll`,
-  SALARY_EMPLOYEE:     (id)  => `${BASE}/salary/employee/${id}`,
-  SALARY_MARK_PAID:    (id)  => `${BASE}/salary/${id}/mark-paid`,
-  SALARY_LOAN_REPAY:   (id)  => `${BASE}/salary/loan-repayments/${id}`,
+  SALARY_COMPUTE:        `${BASE}/salary/compute`,
+  SALARY_UPLOAD_PAYROLL: `${BASE}/salary/upload-payroll`,
+  SALARY_PAYROLL_IMPORTS: `${BASE}/salary/payroll-imports`,
+  SALARY_PAYROLL:        `${BASE}/salary/payroll`,
+  SALARY_EMPLOYEE:       (id)  => `${BASE}/salary/employee/${id}`,
+  SALARY_MARK_PAID:      (id)  => `${BASE}/salary/${id}/mark-paid`,
+  SALARY_LOAN_REPAY:     (id)  => `${BASE}/salary/loan-repayments/${id}`,
 
   // Expenses
   EXPENSE_CATEGORIES:   `${BASE}/expenses/categories`,

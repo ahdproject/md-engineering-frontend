@@ -10,6 +10,7 @@ import StockEntry      from './components/pages/StockEntry';
 import Employees       from './components/pages/Employees';
 import Attendance      from './components/pages/Attendance';
 import Salary          from './components/pages/Salary';
+import PayrollImports  from './components/pages/PayrollImports';
 import Loans           from './components/pages/Loans';
 import Expenses        from './components/pages/Expenses';
 
@@ -27,6 +28,7 @@ export default function RoutesConfig() {
           <Route path="/employees"  element={<Employees />} />
           <Route path="/attendance" element={<Attendance />} />
           <Route path="/salary"     element={<Salary />} />
+          <Route path="/payroll-imports" element={<PayrollImports />} />
           <Route path="/loans"      element={<Loans />} />
           <Route path="/expenses"   element={<Expenses />} />
         </Route>
