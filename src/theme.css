@@ -1,0 +1,288 @@
+/* M&D Engineers ERP - Black & White Theme */
+
+:root {
+  /* Primary Colors */
+  --primary: #000000;
+  --primary-dark: #1a1a1a;
+  --primary-light: #2d2d2d;
+  
+  /* Secondary Colors */
+  --secondary: #ffffff;
+  --secondary-light: #f5f5f5;
+  --secondary-lightest: #fafafa;
+  
+  /* Neutral Colors */
+  --neutral-100: #f9fafb;
+  --neutral-200: #f3f4f6;
+  --neutral-300: #e5e7eb;
+  --neutral-400: #d1d5db;
+  --neutral-500: #9ca3af;
+  --neutral-600: #6b7280;
+  --neutral-700: #4b5563;
+  --neutral-800: #374151;
+  --neutral-900: #1f2937;
+  
+  /* Accent Colors */
+  --accent: #000000;
+  --accent-bg: #f0f0f0;
+  --accent-border: #000000;
+  
+  /* Status Colors */
+  --success: #10b981;
+  --success-light: #d1fae5;
+  --error: #ef4444;
+  --error-light: #fee2e2;
+  --warning: #f59e0b;
+  --warning-light: #fef3c7;
+  --info: #3b82f6;
+  --info-light: #dbeafe;
+}
+
+/* Global Styles */
+body {
+  background-color: var(--secondary);
+  color: var(--primary);
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Text Colors */
+.text-primary {
+  color: var(--primary);
+}
+
+.text-secondary {
+  color: var(--secondary);
+}
+
+.text-neutral {
+  color: var(--neutral-600);
+}
+
+/* Background Colors */
+.bg-primary {
+  background-color: var(--primary);
+}
+
+.bg-secondary {
+  background-color: var(--secondary);
+}
+
+.bg-neutral {
+  background-color: var(--neutral-100);
+}
+
+/* Border Colors */
+.border-primary {
+  border-color: var(--primary);
+}
+
+.border-neutral {
+  border-color: var(--neutral-200);
+}
+
+/* Cards and Containers */
+.card {
+  background-color: var(--secondary);
+  border: 2px solid var(--neutral-200);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.card:hover {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Buttons */
+.btn-primary {
+  background-color: var(--primary);
+  color: var(--secondary);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-light);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.btn-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn-secondary {
+  background-color: var(--neutral-100);
+  color: var(--primary);
+  border: 2px solid var(--neutral-300);
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background-color: var(--neutral-200);
+  border-color: var(--primary);
+}
+
+/* Input Fields */
+.input-field {
+  background-color: var(--secondary);
+  color: var(--primary);
+  border: 2px solid var(--neutral-300);
+  padding: 0.75rem 1rem;
+  border-radius: 0.75rem;
+  font-family: inherit;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.input-field:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1);
+}
+
+.input-field::placeholder {
+  color: var(--neutral-500);
+}
+
+/* Tables */
+.table-header {
+  background-color: var(--neutral-100);
+  color: var(--primary);
+  font-weight: 600;
+  border-bottom: 2px solid var(--neutral-300);
+}
+
+.table-row {
+  border-bottom: 1px solid var(--neutral-200);
+  transition: background-color 0.2s ease;
+}
+
+.table-row:hover {
+  background-color: var(--neutral-50);
+}
+
+/* Badges and Tags */
+.badge {
+  display: inline-block;
+  padding: 0.375rem 0.875rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.badge-primary {
+  background-color: var(--primary);
+  color: var(--secondary);
+}
+
+.badge-neutral {
+  background-color: var(--neutral-200);
+  color: var(--primary);
+}
+
+.badge-success {
+  background-color: var(--success-light);
+  color: var(--success);
+}
+
+.badge-error {
+  background-color: var(--error-light);
+  color: var(--error);
+}
+
+/* Links */
+a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+a:hover {
+  opacity: 0.8;
+}
+
+/* Dividers */
+.divider {
+  background-color: var(--neutral-200);
+  height: 1px;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--neutral-100);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--neutral-400);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--neutral-600);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .card {
+    padding: 1rem;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    padding: 0.625rem 1.25rem;
+    font-size: 0.875rem;
+  }
+
+  .input-field {
+    padding: 0.625rem 0.875rem;
+    font-size: 0.875rem;
+  }
+}
+
+/* Print Styles */
+@media print {
+  body {
+    background-color: white;
+    color: black;
+  }
+
+  .card {
+    border: 1px solid #999;
+    page-break-inside: avoid;
+  }
+
+  .no-print {
+    display: none;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Dark Mode Support (if needed in future) */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --secondary: #1a1a1a;
+    --accent-bg: #2d2d2d;
+  }
+}
