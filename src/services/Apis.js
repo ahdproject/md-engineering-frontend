@@ -1,4 +1,19 @@
-const BASE = import.meta.env.VITE_API_BASE_URL;
+// Get API base URL from environment or use default
+let BASE = import.meta.env.VITE_API_BASE_URL;
+
+// Fallback for production if env var is not set
+if (!BASE || BASE === 'undefined' || BASE === '') {
+  BASE = 'https://m-and-d-engineering-production.up.railway.app/api';
+}
+
+// Ensure BASE ends without trailing slash
+BASE = BASE?.replace(/\/$/, '');
+
+// Debug: Log the API base URL
+if (typeof window !== 'undefined') {
+  console.log('🔗 API Base URL:', BASE);
+  console.log('🔍 Environment:', import.meta.env.MODE);
+}
 
 const APIS = {
   // Auth
