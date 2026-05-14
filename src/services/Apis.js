@@ -33,6 +33,12 @@ const APIS = {
   CHEMICAL_RATE:      (id) => `${BASE}/masters/chemicals/${id}/rate`,
   CHEMICAL_RATE_HIST: (id) => `${BASE}/masters/chemicals/${id}/rate-history`,
 
+  // Material Masters
+  MATERIALS:          `${BASE}/masters/materials`,
+  MATERIAL_BY_ID:     (id) => `${BASE}/masters/materials/${id}`,
+  MATERIAL_RATE:      (id) => `${BASE}/masters/materials/${id}/rate`,
+  MATERIAL_RATE_HIST: (id) => `${BASE}/masters/materials/${id}/rate-history`,
+
   // Stock
   STOCK_ENTRY:        `${BASE}/stock/entry`,
   STOCK_ENTRY_ID:     (id) => `${BASE}/stock/entry/${id}`,

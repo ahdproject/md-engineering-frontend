@@ -6,6 +6,7 @@ import Login           from './components/pages/Login';
 import Dashboard       from './components/pages/Dashboard';
 import Users           from './components/pages/Users';
 import ChemicalMasters from './components/pages/ChemicalMasters';
+import Materials       from './components/pages/Materials';
 import StockEntry      from './components/pages/StockEntry';
 import Employees       from './components/pages/Employees';
 import Attendance      from './components/pages/Attendance';
@@ -23,6 +24,7 @@ export default function RoutesConfig() {
           <Route path="/dashboard"  element={<Dashboard />} />
           <Route path="/users"      element={<Users />} />
           <Route path="/chemicals"  element={<ChemicalMasters />} />
+          <Route path="/materials"  element={<Materials />} />
           <Route path="/stock"      element={<StockEntry />} />
           <Route path="/employees"  element={<Employees />} />
           <Route path="/attendance" element={<Attendance />} />

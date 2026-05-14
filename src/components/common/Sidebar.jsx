@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import {
   LayoutDashboard, Users, FlaskConical,
   PackageSearch, UserCheck, CalendarDays,
-  IndianRupee, Landmark, Receipt, LogOut
+  IndianRupee, Landmark, Receipt, LogOut, Package
 } from 'lucide-react';
 import { clearCredentials } from '../../app/authSlice';
 import { logoutApi } from '../../services/repository/authRepository';
@@ -13,6 +13,7 @@ const NAV = [
   { to: '/dashboard',  label: 'Dashboard',       icon: LayoutDashboard },
   { to: '/users',      label: 'User Management', icon: Users },
   { to: '/chemicals',  label: 'Chemicals',        icon: FlaskConical },
+  { to: '/materials',  label: 'Materials',        icon: Package },
   { to: '/stock',      label: 'Stock Entry',      icon: PackageSearch },
   { to: '/employees',  label: 'Employees',        icon: UserCheck },
   { to: '/attendance', label: 'Attendance',       icon: CalendarDays },
