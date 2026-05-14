@@ -1,6 +1,7 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import ThemeSwitcher from './ThemeSwitcher';
 
 const TITLES = {
   '/dashboard': 'Dashboard',
@@ -21,6 +22,7 @@ export default function Navbar() {
         <p className="text-sm text-gray-600 font-poppins font-medium">{today}</p>
       </div>
       <div className="flex items-center gap-4">
+        <ThemeSwitcher />
         <span className="text-sm bg-black text-white px-4 py-2 rounded-full font-semibold capitalize shadow-md border border-gray-800">
           {user?.role}
         </span>
