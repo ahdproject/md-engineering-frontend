@@ -13,6 +13,7 @@ import Attendance      from './components/pages/Attendance';
 import Salary          from './components/pages/Salary';
 import Loans           from './components/pages/Loans';
 import Expenses        from './components/pages/Expenses';
+import Bills           from './components/pages/Bills';
 
 export default function RoutesConfig() {
   return (
@@ -31,6 +32,7 @@ export default function RoutesConfig() {
           <Route path="/salary"     element={<Salary />} />
           <Route path="/loans"      element={<Loans />} />
           <Route path="/expenses"   element={<Expenses />} />
+          <Route path="/bills"      element={<Bills />} />
         </Route>
       </Route>
       <Route path="*" element={<Navigate to="/login" replace />} />
