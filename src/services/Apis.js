@@ -94,6 +94,12 @@ const APIS = {
   EXPENSE_OPENING_BALANCE: `${BASE}/expenses/balance/opening`,
   EXPENSE_BALANCE:      `${BASE}/expenses/balance`,
   EXPENSE_SUMMARY:      `${BASE}/expenses/summary`,
+
+  // Bills (NEW)
+  BILLS:              `${BASE}/bills`,
+  BILLS_BY_ID:        (id) => `${BASE}/bills/${id}`,
+  BILLS_SEND:         (id) => `${BASE}/bills/${id}/send`,
+  BILLS_SYNC_MASTERS: `${BASE}/bills/sync/masters`,
 };
 
 export default APIS;
